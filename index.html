@@ -65,7 +65,7 @@
     #hero { position:relative; z-index:1; min-height:100vh; display:flex; align-items:center; padding:120px 40px 80px; }
     .hero-inner { max-width:1200px; margin:0 auto; width:100%; display:grid; grid-template-columns:1.05fr 1fr; gap:64px; align-items:center; }
     .hero-badges { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:24px; }
-    .hero-eyebrow { font-size:13px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:var(--cyan); margin-bottom:14px; }
+    .hero-eyebrow { font-size:13px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:var(--cyan); margin-bottom:14px; text-shadow:0 0 20px rgba(0,212,255,.4); }
     .hero-headline { font-size:clamp(34px,4.5vw,58px); font-weight:900; line-height:1.1; letter-spacing:-2px; color:#fff; margin-bottom:20px; }
     .hero-headline em { font-style:normal; background:linear-gradient(135deg,var(--cyan),#a87fff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
     .hero-subtitle { font-size:17px; color:var(--text-muted); line-height:1.8; margin-bottom:36px; max-width:520px; }
@@ -107,8 +107,8 @@
     .pill-purple { background:rgba(123,47,255,.1); color:#a87fff; border:1px solid rgba(123,47,255,.2); }
     .pill-orange { background:rgba(255,140,0,.1); color:var(--orange); border:1px solid rgba(255,140,0,.2); }
     .metodo-visual { display:flex; flex-direction:column; gap:16px; }
-    .metodo-card { background:var(--card); border:1px solid var(--card-border); border-radius:18px; padding:24px 28px; display:flex; align-items:flex-start; gap:18px; transition:border-color .3s, transform .3s; }
-    .metodo-card:hover { border-color:rgba(0,212,255,.35); transform:translateX(4px); }
+    .metodo-card { background:var(--card); border:1px solid var(--card-border); border-radius:18px; padding:24px 28px; display:flex; align-items:flex-start; gap:18px; transition:border-color .3s, transform .3s, box-shadow .3s; box-shadow:0 2px 16px rgba(0,0,0,.25); }
+    .metodo-card:hover { border-color:rgba(0,212,255,.4); transform:translateX(6px); box-shadow:0 4px 24px rgba(0,212,255,.1); }
     .metodo-card-num { font-size:11px; font-weight:900; letter-spacing:2px; color:var(--cyan); padding:6px 12px; background:rgba(0,212,255,.08); border-radius:8px; flex-shrink:0; margin-top:2px; }
     .metodo-card h4 { font-size:16px; font-weight:800; color:#fff; margin-bottom:5px; }
     .metodo-card p  { font-size:13px; color:var(--text-muted); line-height:1.6; }
@@ -130,9 +130,9 @@
     /* ── SECTION 4: PRODUCTOS ── */
     #productos { background:linear-gradient(180deg,transparent,rgba(123,47,255,.04),transparent); }
     .productos-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-    .producto-card { background:var(--card); border:1px solid var(--card-border); border-radius:24px; padding:36px 28px; position:relative; display:flex; flex-direction:column; transition:border-color .3s, transform .3s; }
-    .producto-card:hover { border-color:rgba(0,212,255,.35); transform:translateY(-6px); }
-    .producto-card.featured { border-color:rgba(123,47,255,.5); background:linear-gradient(160deg,rgba(123,47,255,.08),rgba(0,212,255,.04)); box-shadow:0 0 40px rgba(123,47,255,.15); }
+    .producto-card { background:var(--card); border:1px solid var(--card-border); border-radius:24px; padding:36px 28px; position:relative; display:flex; flex-direction:column; transition:border-color .3s, transform .3s, box-shadow .3s; box-shadow:0 4px 24px rgba(0,0,0,.3); }
+    .producto-card:hover { border-color:rgba(0,212,255,.45); transform:translateY(-8px); box-shadow:0 12px 40px rgba(0,212,255,.12), 0 4px 24px rgba(0,0,0,.4); }
+    .producto-card.featured { border-color:rgba(123,47,255,.6); background:linear-gradient(160deg,rgba(123,47,255,.1),rgba(0,212,255,.05)); box-shadow:0 0 50px rgba(123,47,255,.2), 0 4px 24px rgba(0,0,0,.4); }
     .producto-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:linear-gradient(90deg,var(--purple),var(--cyan)); color:#fff; font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; padding:5px 16px; border-radius:50px; white-space:nowrap; }
     .producto-nivel { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--cyan); margin-bottom:10px; }
     .producto-name { font-size:22px; font-weight:900; color:#fff; margin-bottom:8px; letter-spacing:-.5px; }
@@ -290,8 +290,36 @@
 ══════════════════════════════════════ -->
 <nav>
   <div class="nav-logo">
-    <div class="nav-logo-icon">IC</div>
-    <div class="nav-logo-text">ICONE <span>ialabs</span></div>
+    <!-- LOGO SVG ICONE ialabs -->
+    <svg width="148" height="36" viewBox="0 0 148 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="ICONE ialabs">
+      <defs>
+        <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7b2fff"/></linearGradient>
+        <linearGradient id="lg2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#a87fff"/></linearGradient>
+      </defs>
+      <!-- Icono cuadrado redondeado -->
+      <rect width="36" height="36" rx="9" fill="url(#lg1)"/>
+      <!-- Nodo central (IA hub) -->
+      <circle cx="18" cy="18" r="4" fill="white"/>
+      <!-- Nodos satélite -->
+      <circle cx="18" cy="8"  r="2.4" fill="white" opacity="0.88"/>
+      <circle cx="28" cy="18" r="2.4" fill="white" opacity="0.88"/>
+      <circle cx="18" cy="28" r="2.4" fill="white" opacity="0.72"/>
+      <circle cx="8"  cy="18" r="2.4" fill="white" opacity="0.72"/>
+      <!-- Nodos diagonales pequeños -->
+      <circle cx="26" cy="10" r="1.6" fill="white" opacity="0.55"/>
+      <circle cx="10" cy="26" r="1.6" fill="white" opacity="0.55"/>
+      <!-- Líneas de conexión -->
+      <line x1="18" y1="10.4" x2="18" y2="14"   stroke="white" stroke-width="1.3" opacity="0.5"/>
+      <line x1="25.6" y1="18" x2="22"  y2="18"   stroke="white" stroke-width="1.3" opacity="0.5"/>
+      <line x1="18" y1="25.6" x2="18"  y2="22"   stroke="white" stroke-width="1.3" opacity="0.5"/>
+      <line x1="10.4" y1="18" x2="14"  y2="18"   stroke="white" stroke-width="1.3" opacity="0.5"/>
+      <line x1="24.9" y1="11.1" x2="21.8" y2="15.3" stroke="white" stroke-width="1" opacity="0.38"/>
+      <line x1="11.1" y1="24.9" x2="15.2" y2="21.2" stroke="white" stroke-width="1" opacity="0.38"/>
+      <!-- Wordmark: ICONE -->
+      <text x="46" y="22" font-family="Inter,system-ui,sans-serif" font-weight="900" font-size="18" fill="white" letter-spacing="1.5">ICONE</text>
+      <!-- Wordmark: ialabs -->
+      <text x="48" y="33" font-family="Inter,system-ui,sans-serif" font-weight="700" font-size="11" fill="#00d4ff" letter-spacing="2">ialabs</text>
+    </svg>
   </div>
   <ul class="nav-links">
     <li><a href="#metodo">El Método</a></li>
@@ -488,26 +516,23 @@
       <div class="producto-card">
         <div class="producto-nivel">Nivel 01 — Entrada</div>
         <div class="producto-name">ICONE Method Esencial</div>
-        <div class="producto-price">Desde $97 <span>USD</span></div>
         <p class="producto-desc">El sistema completo en formato digital. Aprende y aplica el método a tu ritmo, con acceso inmediato a todos los módulos y herramientas.</p>
-        <a href="https://wa.me/573158940980?text=Hola%20Jorge%2C%20quiero%20el%20ICONE%20Method%20Esencial" target="_blank" rel="noopener" class="producto-btn btn-outline-cyan">Quiero empezar →</a>
+        <a href="https://wa.me/573158940980?text=Hola%20Jorge%2C%20quiero%20conocer%20el%20ICONE%20Method%20Esencial" target="_blank" rel="noopener" class="producto-btn btn-outline-cyan">Hablemos →</a>
       </div>
       <!-- Nivel 2 -->
       <div class="producto-card">
         <div class="producto-nivel">Nivel 02 — Acelerado</div>
         <div class="producto-name">ICONE Method Acelerado</div>
-        <div class="producto-price">Desde $497 <span>USD</span></div>
         <p class="producto-desc">El método aplicado con acompañamiento grupal y sesiones en vivo con Jorge Hugo. Avanza más rápido con comunidad y feedback directo.</p>
-        <a href="https://wa.me/573158940980?text=Hola%20Jorge%2C%20quiero%20el%20ICONE%20Method%20Acelerado" target="_blank" rel="noopener" class="producto-btn btn-purple-full">Quiero acelerar →</a>
+        <a href="https://wa.me/573158940980?text=Hola%20Jorge%2C%20quiero%20conocer%20el%20ICONE%20Method%20Acelerado" target="_blank" rel="noopener" class="producto-btn btn-purple-full">Hablemos →</a>
       </div>
       <!-- Nivel 3 (destacado) -->
       <div class="producto-card featured">
         <div class="producto-badge">⭐ Recomendado</div>
         <div class="producto-nivel">Nivel 03 — Premium</div>
         <div class="producto-name">ICONE Method Premium</div>
-        <div class="producto-price">Desde $2,000 <span>USD</span></div>
         <p class="producto-desc">Implementación del método en tu negocio de forma personalizada y directa con Jorge Hugo. El camino más rápido y profundo hacia la transformación.</p>
-        <a href="https://wa.me/573158940980?text=Hola%20Jorge%2C%20quiero%20el%20ICONE%20Method%20Premium" target="_blank" rel="noopener" class="producto-btn btn-orange-full">Quiero aplicar →</a>
+        <a href="https://wa.me/573158940980?text=Hola%20Jorge%2C%20quiero%20conocer%20el%20ICONE%20Method%20Premium" target="_blank" rel="noopener" class="producto-btn btn-orange-full">Hablemos →</a>
       </div>
     </div>
   </div>
@@ -703,8 +728,23 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="footer-brand-icon">IC</div>
-      <div class="footer-brand-name">ICONE <span>ialabs</span></div>
+      <svg width="120" height="30" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="ICONE ialabs">
+        <defs>
+          <linearGradient id="lf1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7b2fff"/></linearGradient>
+        </defs>
+        <rect width="30" height="30" rx="7" fill="url(#lf1)"/>
+        <circle cx="15" cy="15" r="3.3" fill="white"/>
+        <circle cx="15" cy="7"  r="2"   fill="white" opacity="0.85"/>
+        <circle cx="23" cy="15" r="2"   fill="white" opacity="0.85"/>
+        <circle cx="15" cy="23" r="2"   fill="white" opacity="0.68"/>
+        <circle cx="7"  cy="15" r="2"   fill="white" opacity="0.68"/>
+        <line x1="15" y1="9"  x2="15" y2="11.7" stroke="white" stroke-width="1.2" opacity="0.5"/>
+        <line x1="21" y1="15" x2="18.3" y2="15" stroke="white" stroke-width="1.2" opacity="0.5"/>
+        <line x1="15" y1="21" x2="15" y2="18.3" stroke="white" stroke-width="1.2" opacity="0.5"/>
+        <line x1="9"  y1="15" x2="11.7" y2="15" stroke="white" stroke-width="1.2" opacity="0.5"/>
+        <text x="38" y="18" font-family="Inter,system-ui,sans-serif" font-weight="900" font-size="14" fill="white" letter-spacing="1">ICONE</text>
+        <text x="39" y="27" font-family="Inter,system-ui,sans-serif" font-weight="700" font-size="9"  fill="#00d4ff" letter-spacing="1.5">ialabs</text>
+      </svg>
     </div>
     <div class="footer-links">
       <a href="#metodo">El Método</a>
